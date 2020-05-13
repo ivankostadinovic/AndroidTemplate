@@ -6,7 +6,7 @@ import com.example.skeleton.utils.Tools;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
-    protected void observeDefaultEvents(ArenaViewModel viewModel) {
+    protected void observeDefaultEvents(BaseViewModel viewModel) {
         viewModel.messageEvent.observe(this, msg -> Tools.showMsg(this, msg));
     }
 }
