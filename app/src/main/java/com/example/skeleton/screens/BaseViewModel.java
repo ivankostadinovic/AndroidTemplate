@@ -18,14 +18,14 @@ import com.example.skeleton.utils.Tools;
 
 import io.reactivex.disposables.CompositeDisposable;
 
-public class ArenaViewModel extends AndroidViewModel {
+public class BaseViewModel extends AndroidViewModel {
     public CompositeDisposable disposable = new CompositeDisposable();
     public SingleLiveEvent<String> messageEvent = new SingleLiveEvent<>();
     public Repository repository;
     public ObservableBoolean processing = new ObservableBoolean();
 
 
-    public ArenaViewModel(@NonNull Application application) {
+    public BaseViewModel(@NonNull Application application) {
         super(application);
 
         repository = Repository.getInstance(application);
