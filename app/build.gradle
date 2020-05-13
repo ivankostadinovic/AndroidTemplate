@@ -74,4 +74,8 @@ dependencies {
     implementation 'com.jakewharton.rxbinding3:rxbinding-core:3.1.0'
     implementation 'com.jakewharton.rxbinding3:rxbinding-appcompat:3.1.0'
 
+    implementation 'androidx.leanback:leanback:1.0.0'
+    implementation 'com.google.android.exoplayer:exoplayer:2.11.3'
+
+
 }

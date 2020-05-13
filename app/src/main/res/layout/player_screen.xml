@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.skeleton.screens.BaseViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="false"
+        android:focusableInTouchMode="false">
+
+        <com.google.android.exoplayer2.ui.SimpleExoPlayerView
+            android:background="#000"
+            android:id="@+id/player_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            app:controller_layout_id="@layout/player_controller"
+            app:fastforward_increment="5000"
+            app:rewind_increment="5000"
+            app:show_timeout="10000"
+            app:use_controller="true" />
+
+        <ProgressBar
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:visibility="@{viewModel.processing ? View.VISIBLE : View.GONE}" />
+    </FrameLayout>
+</layout>
