@@ -66,6 +66,12 @@ public abstract class GenericAdapter<T, D extends ViewDataBinding> extends Recyc
         notifyDataSetChanged();
     }
 
+    public void removeItem(T item) {
+        int position = mArrayList.indexOf(item);
+        mArrayList.remove(item);
+        notifyItemRemoved(position);
+    }
+
     public T getItem(int position) {
         return mArrayList.get(position);
     }
