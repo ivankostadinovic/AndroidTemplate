@@ -10,7 +10,8 @@ import androidx.lifecycle.Observer;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import io.reactivex.annotations.NonNull;
+import io.reactivex.rxjava3.annotations.NonNull;
+
 
 /**
  * A lifecycle-aware observable that sends only new updates after subscription, used for events like
