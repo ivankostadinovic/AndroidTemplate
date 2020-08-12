@@ -5,10 +5,6 @@ import android.app.Application;
 import com.example.skeleton.services.RemoteApiInterface;
 import com.example.skeleton.services.RemoteApiService;
 
-import io.reactivex.Single;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
-
 public class Repository {
 
     private static Repository sInstance;

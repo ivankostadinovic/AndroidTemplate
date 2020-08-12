@@ -16,7 +16,8 @@ import com.example.skeleton.repositories.Repository;
 import com.example.skeleton.utils.SingleLiveEvent;
 import com.example.skeleton.utils.Tools;
 
-import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+
 
 public class BaseViewModel extends AndroidViewModel {
     public CompositeDisposable disposable = new CompositeDisposable();
