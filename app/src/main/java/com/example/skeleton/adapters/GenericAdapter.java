@@ -19,7 +19,8 @@ public abstract class GenericAdapter<T, D extends ViewDataBinding> extends Recyc
     private int layoutResId;
 
     public GenericAdapter(List<T> arrayList, @LayoutRes int layoutResId) {
-        this.mArrayList = arrayList;
+        this.mArrayList = new ArrayList<>();
+        this.mArrayList.addAll(arrayList);
         this.layoutResId = layoutResId;
     }
 
@@ -44,6 +45,7 @@ public abstract class GenericAdapter<T, D extends ViewDataBinding> extends Recyc
         onBindData(mArrayList.get(position), position, ((ItemViewHolder) holder).mDataBinding);
         ((ItemViewHolder) holder).mDataBinding.executePendingBindings();
         ((ItemViewHolder) holder).mDataBinding.getRoot().setOnClickListener(view -> onItemClick(mArrayList.get(position), position));
+
     }
 
     @Override
@@ -52,8 +54,11 @@ public abstract class GenericAdapter<T, D extends ViewDataBinding> extends Recyc
     }
 
     public void setItems(List<T> arrayList) {
-        mArrayList = arrayList;
-        notifyDataSetChanged();
+        if (mArrayList != arrayList) {
+            mArrayList = new ArrayList<>();
+            mArrayList.addAll(arrayList);
+            notifyDataSetChanged();
+        }
     }
 
     public void addItems(ArrayList<T> arrayList) {
@@ -75,6 +80,7 @@ public abstract class GenericAdapter<T, D extends ViewDataBinding> extends Recyc
     public T getItem(int position) {
         return mArrayList.get(position);
     }
+
 
     private class ItemViewHolder extends RecyclerView.ViewHolder {
         private D mDataBinding;
