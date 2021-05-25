@@ -12,17 +12,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import io.reactivex.rxjava3.annotations.NonNull;
 
-
-/**
- * A lifecycle-aware observable that sends only new updates after subscription, used for events like
- * navigation and Snackbar messages.
- * <p>
- * This avoids a common problem with events: on configuration change (like rotation) an update
- * can be emitted if the observer is active. This LiveData only calls the observable if there's an
- * explicit call toQRData2 setValue() or call().
- * <p>
- * Note that only one observer is going toQRData2 be notified of changes.
- */
 public class SingleLiveEvent<T> extends MutableLiveData<T> {
 
     private static final String TAG = "SingleLiveEvent";
@@ -36,13 +25,9 @@ public class SingleLiveEvent<T> extends MutableLiveData<T> {
             Log.w(TAG, "Multiple observers registered but only one will be notified of changes.");
         }
 
-        // Observe the internal MutableLiveData
-        super.observe(owner, new Observer<T>() {
-            @Override
-            public void onChanged(@Nullable T t) {
-                if (mPending.compareAndSet(true, false)) {
-                    observer.onChanged(t);
-                }
+        super.observe(owner, t -> {
+            if (mPending.compareAndSet(true, false)) {
+                observer.onChanged(t);
             }
         });
     }
@@ -53,9 +38,6 @@ public class SingleLiveEvent<T> extends MutableLiveData<T> {
         super.setValue(t);
     }
 
-    /**
-     * Used for cases where T is Void, toQRData2 make calls cleaner.
-     */
     @MainThread
     public void call() {
         setValue(null);
