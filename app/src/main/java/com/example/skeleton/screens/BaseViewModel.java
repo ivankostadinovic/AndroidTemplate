@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.databinding.ObservableBoolean;
 import androidx.lifecycle.AndroidViewModel;
 
+import com.example.skeleton.R;
 import com.example.skeleton.repositories.Repository;
 import com.example.skeleton.utils.SingleLiveEvent;
 import com.example.skeleton.utils.Tools;
@@ -22,15 +23,16 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable;
 public class BaseViewModel extends AndroidViewModel {
     public CompositeDisposable disposable = new CompositeDisposable();
     public SingleLiveEvent<String> messageEvent = new SingleLiveEvent<>();
-    public Repository repository;
     public ObservableBoolean processing = new ObservableBoolean();
+    public SingleLiveEvent<String> infoDialogEvent = new SingleLiveEvent<>();
 
 
     public BaseViewModel(@NonNull Application application) {
         super(application);
+    }
 
-        repository = Repository.getInstance(application);
-
+    protected Repository getRepository() {
+        return Repository.getInstance(getApplication());
     }
 
 
@@ -41,12 +43,12 @@ public class BaseViewModel extends AndroidViewModel {
                 Network nw = connectivityManager.getActiveNetwork();
                 NetworkCapabilities actNw = connectivityManager.getNetworkCapabilities(nw);
                 if (actNw != null && (
-                        actNw.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)
-                                || actNw.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)
-                                || actNw.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET))) {
+                    actNw.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)
+                        || actNw.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)
+                        || actNw.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET))) {
                     return true;
                 } else {
-                    messageEvent.setValue("No internet");
+                    infoDialogEvent.setValue(getString(R.string.no_internet));
                     return false;
                 }
             } else {
@@ -54,7 +56,7 @@ public class BaseViewModel extends AndroidViewModel {
                 if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
                     return true;
                 } else {
-                    messageEvent.setValue("No internet");
+                    infoDialogEvent.setValue(getString(R.string.no_internet));
                     return false;
                 }
             }
@@ -73,5 +75,9 @@ public class BaseViewModel extends AndroidViewModel {
     protected void onCleared() {
         super.onCleared();
         disposable.dispose();
+    }
+
+    public String getString(int stringId) {
+        return getApplication().getString(stringId);
     }
 }
