@@ -2,25 +2,25 @@ package com.ivankostadinovic.template.services;
 
 
 import android.app.Application;
+import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 
 import com.ivankostadinovic.template.BuildConfig;
-import com.ivankostadinovic.template.utils.Tools;
+import com.ivankostadinovic.template.repositories.SharedPrefs;
 import com.google.gson.ExclusionStrategy;
 import com.google.gson.FieldAttributes;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
 import com.google.gson.annotations.Expose;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import okhttp3.ResponseBody;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -77,56 +77,33 @@ public class RemoteApiService {
     private static OkHttpClient getOKHttpClient() {
         return
             new OkHttpClient.Builder()
+                .addInterceptor(new HttpLoggingInterceptor().setLevel(BuildConfig.DEBUG ? HttpLoggingInterceptor.Level.BODY : HttpLoggingInterceptor.Level.NONE))
                 .addInterceptor(new StatusCodeInterceptor())
-                .readTimeout(10, TimeUnit.SECONDS)
-                .writeTimeout(10, TimeUnit.SECONDS)
-                .connectTimeout(10, TimeUnit.SECONDS)
+                .readTimeout(20, TimeUnit.SECONDS)
+                .writeTimeout(20, TimeUnit.SECONDS)
+                .connectTimeout(20, TimeUnit.SECONDS)
                 .build();
 
     }
 
     public static class StatusCodeInterceptor implements okhttp3.Interceptor {
+
+
         @NonNull
         @Override
-        public okhttp3.Response intercept(Chain chain) throws IOException {
-
-            //Tools.processing.postValue(true);
+        public okhttp3.Response intercept(@NotNull Chain chain) throws IOException {
 
             Request request = chain.request();
-            try {
-                request = request.newBuilder()
-                    .addHeader("Content-Type", "application/json")
-                    .addHeader("Accept", "application/json")
-                    .build();
+            Request.Builder requestBuilder = request.newBuilder()
+                .addHeader("Content-Type", "application/json")
+                .addHeader("app-os", "android");
 
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-            okhttp3.Response response = chain.proceed(request);
-
-            if (!response.isSuccessful())
-                Tools.log("error123 " + request);
-//
-            //Tools.processing.postValue(false);
-
-
-            ResponseBody body = response.body();
-            String bodyString = body.string();
-            Tools.log("Response from API" + bodyString);
-
-            MediaType contentType = body.contentType();
-
-            try {
-                JsonParser jsonParser = new JsonParser();
-                JsonElement jsonData = jsonParser.parse(bodyString);
-
-            } catch (Exception ex) {
-                ex.printStackTrace();
+            String apiToken = SharedPrefs.getInstance(sApplication).getApiToken();
+            if (!TextUtils.isEmpty(apiToken)) {
+                requestBuilder.addHeader("Authorization", apiToken);
             }
 
-            return response.newBuilder().body(ResponseBody.create(contentType, bodyString)).build();
+            return chain.proceed(request);
         }
     }
-
 }
-

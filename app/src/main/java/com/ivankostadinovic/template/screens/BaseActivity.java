@@ -11,7 +11,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     public Toast toast;
 
     protected void observeDefaultEvents(BaseViewModel viewModel) {
-        viewModel.messageEvent.observe(this, msg -> Tools.showMsg(this, msg));
+        viewModel.messageEvent.observe(this, this::showMsg);
     }
 
     public void showMsg(String msg) {

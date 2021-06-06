@@ -4,6 +4,7 @@
 - Folder structure
 - MVVM architecture
 - Repository Pattern
+- Networking layer set up
 - SharedPrefs implementation
 - RxJava3 and SingleLiveEvent
 - Standard helper functions in Tools.java class
@@ -11,6 +12,9 @@
 
 ## Usage
 Clone this repository, change the package name, app id and anything else you don't like :grinning:
+
+## Networking layer
+In the **build.gradle** (app level), change the **BASE_URL** to your API base url and you can start adding API calls to the **RemoteApiInterface.java**
 
 # License
 ```
