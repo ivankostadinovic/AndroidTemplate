@@ -9,7 +9,7 @@
 - Standard helper functions in Tools.java class
 
 ## Usage
-Clone this repository, change the package name, app id and anything else you don't like :)
+Clone this repository, change the package name, app id and anything else you don't like :grinning:
 
 # License
 ```
