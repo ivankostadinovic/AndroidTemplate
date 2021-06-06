@@ -8,6 +8,9 @@
 - RxJava3 and SingleLiveEvent
 - Standard helper functions in Tools.java class
 
+## Usage
+Clone this repository, change the package name, app id and anything else you don't like :)
+
 # License
 ```
 MIT License
