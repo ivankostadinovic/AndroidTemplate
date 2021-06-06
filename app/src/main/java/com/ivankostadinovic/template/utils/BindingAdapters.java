@@ -1,4 +1,4 @@
-package com.example.skeleton.utils;
+package com.ivankostadinovic.template.utils;
 
 import android.widget.ImageView;
 import androidx.databinding.BindingAdapter;

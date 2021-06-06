@@ -1,9 +1,9 @@
-package com.example.skeleton.repositories;
+package com.ivankostadinovic.template.repositories;
 
 import android.app.Application;
 
-import com.example.skeleton.services.RemoteApiInterface;
-import com.example.skeleton.services.RemoteApiService;
+import com.ivankostadinovic.template.services.RemoteApiInterface;
+import com.ivankostadinovic.template.services.RemoteApiService;
 
 public class Repository {
 

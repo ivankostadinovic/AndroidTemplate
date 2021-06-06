@@ -1,10 +1,10 @@
-package com.example.skeleton.screens;
+package com.ivankostadinovic.template.screens;
 
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.skeleton.utils.Tools;
+import com.ivankostadinovic.template.utils.Tools;
 
 public abstract class BaseActivity extends AppCompatActivity {
 

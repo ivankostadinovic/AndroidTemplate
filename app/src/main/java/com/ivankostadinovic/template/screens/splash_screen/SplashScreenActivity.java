@@ -1,9 +1,9 @@
-package com.example.skeleton.screens.splash_screen;
+package com.ivankostadinovic.template.screens.splash_screen;
 
 import android.os.Bundle;
 
-import com.example.skeleton.R;
-import com.example.skeleton.screens.BaseActivity;
+import com.ivankostadinovic.template.R;
+import com.ivankostadinovic.template.screens.BaseActivity;
 
 public class SplashScreenActivity extends BaseActivity {
 

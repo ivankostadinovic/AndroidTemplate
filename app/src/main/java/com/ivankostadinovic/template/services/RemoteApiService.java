@@ -1,12 +1,12 @@
-package com.example.skeleton.services;
+package com.ivankostadinovic.template.services;
 
 
 import android.app.Application;
 
 import androidx.annotation.NonNull;
 
-import com.example.skeleton.BuildConfig;
-import com.example.skeleton.utils.Tools;
+import com.ivankostadinovic.template.BuildConfig;
+import com.ivankostadinovic.template.utils.Tools;
 import com.google.gson.ExclusionStrategy;
 import com.google.gson.FieldAttributes;
 import com.google.gson.GsonBuilder;

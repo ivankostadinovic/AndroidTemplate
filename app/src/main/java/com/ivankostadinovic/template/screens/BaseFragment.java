@@ -1,4 +1,4 @@
-package com.example.skeleton.screens;
+package com.ivankostadinovic.template.screens;
 
 import android.widget.Toast;
 

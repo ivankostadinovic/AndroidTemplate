@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     defaultConfig {
-        applicationId "com.example.skeleton"
+        applicationId "com.ivankostadinovic.template"
         minSdkVersion 21
         targetSdkVersion 30
         compileSdkVersion 30
@@ -64,7 +64,6 @@ dependencies {
     //RxJava3 RxAndroid
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
     implementation 'io.reactivex.rxjava3:rxjava:3.0.12'
-    implementation 'com.jakewharton.rxbinding4:rxbinding:4.0.0'
     implementation 'com.jakewharton.rxbinding4:rxbinding-core:4.0.0'
     implementation 'com.jakewharton.rxbinding4:rxbinding-appcompat:4.0.0'
 
@@ -73,5 +72,7 @@ dependencies {
     implementation 'com.github.ivankostadinovic:ExoPlayerWrapper:0.5.0'
 
     //GenericAdapter
-    implementation 'com.github.ivankostadinovic:GenericAdapter:1.5.2'
+    implementation 'com.github.ivankostadinovic:GenericAdapter:1.5.3'
+    api 'com.jakewharton.timber:timber:4.7.1'
+
 }

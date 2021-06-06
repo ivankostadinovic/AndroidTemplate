@@ -1,4 +1,4 @@
-package com.example.skeleton;
+package com.ivankostadinovic.template;
 
 import org.junit.Test;
 

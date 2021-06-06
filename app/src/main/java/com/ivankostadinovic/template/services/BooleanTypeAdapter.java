@@ -1,4 +1,4 @@
-package com.example.skeleton.services;
+package com.ivankostadinovic.template.services;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;

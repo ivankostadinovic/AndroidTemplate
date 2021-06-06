@@ -1,4 +1,4 @@
-package com.example.skeleton.adapters;
+package com.ivankostadinovic.template.adapters;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;

@@ -1,4 +1,4 @@
-package com.example.skeleton.screens;
+package com.ivankostadinovic.template.screens;
 
 import android.app.Application;
 import android.content.Context;
@@ -12,10 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.databinding.ObservableBoolean;
 import androidx.lifecycle.AndroidViewModel;
 
-import com.example.skeleton.R;
-import com.example.skeleton.repositories.Repository;
-import com.example.skeleton.utils.SingleLiveEvent;
-import com.example.skeleton.utils.Tools;
+import com.ivankostadinovic.template.R;
+import com.ivankostadinovic.template.repositories.Repository;
+import com.ivankostadinovic.template.utils.SingleLiveEvent;
+import com.ivankostadinovic.template.utils.Tools;
 
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 

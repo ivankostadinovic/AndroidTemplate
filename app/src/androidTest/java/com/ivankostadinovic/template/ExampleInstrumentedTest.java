@@ -1,4 +1,4 @@
-package com.example.skeleton;
+package com.ivankostadinovic.template;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.example.skeleton", appContext.getPackageName());
+        assertEquals("com.ivankostadinovic.template", appContext.getPackageName());
     }
 }
