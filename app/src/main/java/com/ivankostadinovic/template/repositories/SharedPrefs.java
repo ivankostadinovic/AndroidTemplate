@@ -1,4 +1,4 @@
-package com.example.skeleton.repositories;
+package com.ivankostadinovic.template.repositories;
 
 import android.content.Context;
 import android.content.SharedPreferences;

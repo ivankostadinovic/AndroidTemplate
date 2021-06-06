@@ -1,4 +1,4 @@
-package com.example.skeleton.utils;
+package com.ivankostadinovic.template.utils;
 
 import android.content.Context;
 import android.util.Log;
@@ -9,11 +9,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import timber.log.Timber;
+
 public class Tools {
     private static Toast toast;
 
     public static void log(String msg) {
-        Log.d("**com.skeleton**", msg);
+        Timber.d(msg);
     }
 
     public static void showMsg(Context ctx, String msg) {
