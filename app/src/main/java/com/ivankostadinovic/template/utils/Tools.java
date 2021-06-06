@@ -12,23 +12,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import timber.log.Timber;
 
 public class Tools {
-    private static Toast toast;
 
     public static void log(String msg) {
         Timber.d(msg);
     }
 
-    public static void showMsg(Context ctx, String msg) {
-        if (toast != null) {
-            toast.cancel();
-        }
-        toast = Toast.makeText(ctx, msg, Toast.LENGTH_LONG);
-        toast.show();
-    }
-
-    public static boolean isActionDown(KeyEvent event) {
-        return event.getAction() == KeyEvent.ACTION_DOWN;
-    }
 
     public static void showKeyboard(EditText et) {
         InputMethodManager imm = (InputMethodManager) et.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
