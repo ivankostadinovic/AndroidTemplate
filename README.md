@@ -7,7 +7,7 @@
 - SharedPrefs implementation
 - RxJava3 and SingleLiveEvent
 - Standard helper functions in Tools.java class
-- ExoPlayer imported, layo
+- ExoPlayer dependencies and layouts set up
 
 ## Usage
 Clone this repository, change the package name, app id and anything else you don't like :grinning:
