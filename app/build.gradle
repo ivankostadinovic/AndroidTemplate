@@ -67,5 +67,5 @@ dependencies {
     implementation 'com.jakewharton.rxbinding4:rxbinding:4.0.0'
     implementation 'com.jakewharton.rxbinding4:rxbinding-core:4.0.0'
     implementation 'com.jakewharton.rxbinding4:rxbinding-appcompat:4.0.0'
-    implementation 'com.github.ivankostadinovic:GenericAdapter:1.5.2'
+    implementation 'com.github.ivankostadinovic:GenericAdapter:1.5.3'
 }
