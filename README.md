@@ -1,3 +1,9 @@
 # Template
 
-A template project with preset folder structure, RxJava3, MVVM architecture and Repository pattern implemented to help you get started quickly. 
+## A template project preset with the following:
+- Folder structure
+- MVVM architecture
+- Repository Pattern
+- SharedPrefs implementation
+- RxJava3 and SingleLiveEvent
+- Standard helper functions in Tools.java class
