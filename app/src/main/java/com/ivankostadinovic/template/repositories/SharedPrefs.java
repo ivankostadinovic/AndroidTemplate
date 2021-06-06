@@ -2,9 +2,12 @@ package com.ivankostadinovic.template.repositories;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+
 import com.google.gson.Gson;
 
 public class SharedPrefs {
+
+    public static final String API_TOKEN = "api_token";
 
     private static SharedPrefs sInstance;
     private SharedPreferences mSharedPrefs;
@@ -28,5 +31,13 @@ public class SharedPrefs {
 
     public void deleteTokens() {
         mSharedPrefs.edit().clear().apply();
+    }
+
+    public String getApiToken() {
+        return mSharedPrefs.getString(API_TOKEN, null);
+    }
+
+    public void saveApiToken(String apiToken) {
+        mSharedPrefs.edit().putString(API_TOKEN, apiToken).apply();
     }
 }
