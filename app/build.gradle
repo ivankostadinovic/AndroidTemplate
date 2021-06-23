@@ -73,7 +73,7 @@ dependencies {
     implementation 'com.github.ivankostadinovic:ExoPlayerWrapper:0.5.0'
 
     //GenericAdapter
-    implementation 'com.github.ivankostadinovic:GenericAdapter:1.5.3'
+    implementation 'com.github.ivankostadinovic:GenericAdapter:1.5.5'
     api 'com.jakewharton.timber:timber:4.7.1'
 
 }
