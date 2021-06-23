@@ -25,6 +25,7 @@ public class BaseViewModel extends AndroidViewModel {
     public SingleLiveEvent<String> messageEvent = new SingleLiveEvent<>();
     public ObservableBoolean processing = new ObservableBoolean();
     public SingleLiveEvent<String> infoDialogEvent = new SingleLiveEvent<>();
+    private Repository repository;
 
 
     public BaseViewModel(@NonNull Application application) {
@@ -32,9 +33,11 @@ public class BaseViewModel extends AndroidViewModel {
     }
 
     protected Repository getRepository() {
-        return Repository.getInstance(getApplication());
+        if (repository == null) {
+            repository = Repository.getInstance(getApplication());
+        }
+        return repository;
     }
-
 
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getApplication().getSystemService(Context.CONNECTIVITY_SERVICE);
