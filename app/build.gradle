@@ -67,7 +67,7 @@ dependencies {
     implementation 'io.reactivex.rxjava3:rxjava:3.0.12'
     implementation 'com.jakewharton.rxbinding4:rxbinding-core:4.0.0'
     implementation 'com.jakewharton.rxbinding4:rxbinding-appcompat:4.0.0'
-    implementation 'com.github.ivankostadinovic:GenericAdapter:1.5.3'
+    implementation 'com.github.ivankostadinovic:GenericAdapter:1.5.5'
 
     api 'com.jakewharton.timber:timber:4.7.1'
 }
