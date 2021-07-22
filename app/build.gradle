@@ -70,7 +70,7 @@ dependencies {
 
     //TV Specific
     implementation 'androidx.leanback:leanback:1.0.0'
-    implementation 'com.github.ivankostadinovic:ExoPlayerWrapper:0.5.0'
+    implementation 'com.github.ivankostadinovic:ExoPlayerWrapper:2.14.1'
 
     //GenericAdapter
     implementation 'com.github.ivankostadinovic:GenericAdapter:1.5.5'
