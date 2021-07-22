@@ -37,19 +37,20 @@ android {
 dependencies {
     testImplementation 'junit:junit:4.13.2'
     // Optional -- Robolectric environment
-    testImplementation 'androidx.test:core:1.3.0'
+    testImplementation 'androidx.test:core:1.4.0'
     // Optional -- Mockito framework
     testImplementation 'org.mockito:mockito-core:2.28.2'
-    testImplementation 'androidx.test:runner:1.3.0'
+    testImplementation 'androidx.test:runner:1.4.0'
 
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test:rules:1.3.0'
+    //ui tests
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test:rules:1.4.0'
 
+    //App Compat, Glide, ConstraintLayout, Material
     implementation 'androidx.appcompat:appcompat:1.3.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    implementation 'com.google.android.material:material:1.3.0'
-
+    implementation 'com.google.android.material:material:1.4.0'
     implementation 'com.github.bumptech.glide:glide:4.12.0'
 
     //ViewModel & LiveData
